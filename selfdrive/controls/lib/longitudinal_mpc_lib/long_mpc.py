@@ -234,6 +234,7 @@ def gen_long_ocp():
 
 class LongitudinalMpc:
   def __init__(self, mode='acc'):
+    self.braking_offset = 1
     self.mode = mode
     self.solver = AcadosOcpSolverCython(MODEL_NAME, ACADOS_SOLVER_TYPE, N)
     self.reset()
@@ -287,6 +288,7 @@ class LongitudinalMpc:
 
   def set_weights(self, v_ego=0., a_desired=0., prev_accel_constraint=True, personality=log.LongitudinalPersonality.standard):
     jerk_factor = get_jerk_factor(personality)
+    jerk_factor /= np.mean(self.braking_offset)
     if self.mode == 'acc':
       a_change_cost = A_CHANGE_COST if prev_accel_constraint else 0
       #cost_weights = [X_EGO_OBSTACLE_COST, X_EGO_COST, V_EGO_COST, A_EGO_COST, jerk_factor * a_change_cost, jerk_factor * J_EGO_COST]
@@ -364,9 +366,10 @@ class LongitudinalMpc:
     # Offset by FrogAi for FrogPilot for a more natural approach to a slower lead
     if smoother_braking:
       distance_factor = np.maximum(1, lead_xv_0[:,0] - (lead_xv_0[:,1] * self.t_follow))
-      t_follow_offset = np.clip((v_ego - lead_xv_0[:,1]) - COMFORT_BRAKE, 1, distance_factor)
-      self.t_follow = self.t_follow / t_follow_offset
-
+      self.braking_offset = np.clip((v_ego - lead_xv_0[:,1]) - COMFORT_BRAKE, 1, distance_factor)
+      self.t_follow = self.t_follow / self.braking_offset
+    else:
+      self.braking_offset = 1
     # neokii
     gapAdjust = carstate.cruiseState.gapAdjust
     cruise_gap = int(clip(gapAdjust, 1., 4.)) if gapAdjust > 0 else 4
