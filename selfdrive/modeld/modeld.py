@@ -117,6 +117,8 @@ class ModelState:
 
 
 def main(demo=False):
+  cloudlog.warning("modeld init")
+
   sentry.set_tag("daemon", PROCESS_NAME)
   cloudlog.bind(daemon=PROCESS_NAME)
   setproctitle(PROCESS_NAME)
