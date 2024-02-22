@@ -19,7 +19,6 @@ const int img_size = (btn_size / 4) * 3;
 #include <QMap>
 #include "selfdrive/ui/qt/screenrecorder/screenrecorder.h"
 
-
 // ***** onroad widgets *****
 
 class OnroadAlerts : public QWidget {
@@ -131,6 +130,10 @@ protected:
   QPixmap ic_turn_signal_r;
   QPixmap ic_satellite;
 
+  QPixmap ic_ts_green[2];
+  QPixmap ic_ts_left[2];
+  QPixmap ic_ts_red[2];
+
   QMap<QString, QPixmap> ic_oil_com;
 
   void drawMaxSpeed(QPainter &p);
@@ -143,6 +146,7 @@ protected:
   void drawDebugText(QPainter &p);
   void drawDriverState(QPainter &painter, const UIState *s);
   void drawMisc(QPainter &p);
+  void drawTrafficSignal(QPainter &p);
   void drawHud(QPainter &p, const cereal::ModelDataV2::Reader &model);
 
   // neokii

@@ -226,8 +226,7 @@ def main(demo=False):
     desire = DH.desire
     is_rhd = sm["driverMonitoringState"].isRHD
     frame_id = sm["roadCameraState"].frameId
-    # TODO add lag
-    lateral_control_params = np.array([sm["carState"].vEgo, ntune_common_get('steerActuatorDelay')], dtype=np.float32)
+    lateral_control_params = np.array([sm["carState"].vEgo, ntune_common_get('steerActuatorDelay')+.2], dtype=np.float32)
     if sm.updated["liveCalibration"]:
       device_from_calib_euler = np.array(sm["liveCalibration"].rpyCalib, dtype=np.float32)
       model_transform_main = get_warp_matrix(device_from_calib_euler, main_wide_camera, False).astype(np.float32)
