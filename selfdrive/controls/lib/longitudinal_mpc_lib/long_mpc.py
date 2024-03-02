@@ -36,7 +36,7 @@ X_EGO_COST = 0.
 V_EGO_COST = 0.
 A_EGO_COST = 0.
 J_EGO_COST = 5.0
-A_CHANGE_COST = 200.
+A_CHANGE_COST = 50
 DANGER_ZONE_COST = 100.
 CRASH_DISTANCE = .25
 LEAD_DANGER_FACTOR = 0.75
@@ -83,11 +83,11 @@ def get_T_FOLLOW(personality=log.LongitudinalPersonality.standard):
 
 def get_T_FOLLOW_Factor(personality=log.LongitudinalPersonality.standard):
   if personality==log.LongitudinalPersonality.relaxed:
-    return 1.5
+    return 1.2
   elif personality==log.LongitudinalPersonality.standard:
-    return 1.25
-  elif personality==log.LongitudinalPersonality.aggressive:
     return 1.0
+  elif personality==log.LongitudinalPersonality.aggressive:
+    return 0.85
   else:
     raise NotImplementedError("Longitudinal personality not supported")
 
@@ -290,16 +290,8 @@ class LongitudinalMpc:
     jerk_factor /= np.mean(self.braking_offset)
     if self.mode == 'acc':
       a_change_cost = A_CHANGE_COST if prev_accel_constraint else 0
-      #cost_weights = [X_EGO_OBSTACLE_COST, X_EGO_COST, V_EGO_COST, A_EGO_COST, jerk_factor * a_change_cost, jerk_factor * J_EGO_COST]
-
-      if v_ego < 0.1 or a_desired > 0.:
-        x_cost = interp(v_ego, [5., 10.], [0.1, X_EGO_COST])
-        v_cost = interp(v_ego, [5., 10.], [0.2, V_EGO_COST])
-        a_cost = interp(v_ego, [5., 10.], [5.0, A_EGO_COST])
-      else:
-        x_cost, v_cost, a_cost = 0., 0., 0.
-
-      cost_weights = [X_EGO_OBSTACLE_COST, x_cost, v_cost, a_cost, jerk_factor * a_change_cost, jerk_factor * J_EGO_COST]
+      x_ego_obstacle_cost = interp(v_ego, [0., 10.], [X_EGO_OBSTACLE_COST*2., X_EGO_OBSTACLE_COST])
+      cost_weights = [x_ego_obstacle_cost, X_EGO_COST, V_EGO_COST, A_EGO_COST, jerk_factor * a_change_cost, jerk_factor * J_EGO_COST]
       constraint_cost_weights = [LIMIT_COST, LIMIT_COST, LIMIT_COST, DANGER_ZONE_COST]
     elif self.mode == 'blended':
       a_change_cost = 40.0 if prev_accel_constraint else 0
@@ -400,7 +392,7 @@ class LongitudinalMpc:
       self.source = SOURCES[np.argmin(x_obstacles[0])]
 
       # These are not used in ACC mode
-      #x[:], v[:], a[:], j[:] = 0.0, 0.0, 0.0, 0.0
+      x[:], v[:], a[:], j[:] = 0.0, 0.0, 0.0, 0.0
 
       cruise_target = T_IDXS * np.clip(v_cruise, v_ego - 2.0, 1e3) + x[0]
       xforward = ((v[1:] + v[:-1]) / 2) * (T_IDXS[1:] - T_IDXS[:-1])
