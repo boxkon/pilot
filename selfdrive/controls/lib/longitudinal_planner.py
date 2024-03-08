@@ -22,7 +22,7 @@ from openpilot.selfdrive.controls.vtsc import vtsc
 
 LON_MPC_STEP = 0.2  # first step is 0.2s
 A_CRUISE_MIN = -1.2
-A_CRUISE_MAX_VALS = [2.0, 1.2, 0.8, 0.6]
+A_CRUISE_MAX_VALS = [1.6, 1.2, 0.8, 0.6]
 A_CRUISE_MAX_BP = [0., 10.0, 25., 40.]
 
 # Lookup table for turns
@@ -66,9 +66,9 @@ class LongitudinalPlanner:
     self.solverExecutionTime = 0.0
     self.params = Params()
     self.param_read_counter = 0
-    self.read_param()
     self.personality = log.LongitudinalPersonality.standard
     self.smoother_braking = self.params.get_bool("SmoothBraking")
+    self.read_param()
 
   def read_param(self):
     try:
