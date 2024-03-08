@@ -210,7 +210,7 @@ class nTune():
     if self.checkValue("longStartingFactor", 0.7, 2.0, 1.6):
       updated = True
 
-    if self.checkValue("longLeadSensitivity", 0.5, 1.3, 0.85):
+    if self.checkValue("longLeadSensitivity", 0.5, 1.3, 0.9):
       updated = True
 
     return updated
