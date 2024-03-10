@@ -298,6 +298,7 @@ struct GpsLocationData {
     ublox @6;
     trimble @7;
     qcomdiag @8;
+    unicore @9;
   }
 }
 
