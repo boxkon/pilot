@@ -35,9 +35,6 @@ from openpilot.system.version import get_short_branch
 from openpilot.selfdrive.controls.ntune import ntune_common_enabled, ntune_common_get
 from openpilot.selfdrive.controls.neokii.speed_controller import SpeedController
 
-# PFEIFER - EMT
-from openpilot.selfdrive.controls.experimental_mode_toggle import emt
-
 SOFT_DISABLE_TIME = 3  # seconds
 LDW_MIN_SPEED = 31 * CV.MPH_TO_MS
 LANE_DEPARTURE_THRESHOLD = 0.1
@@ -838,9 +835,6 @@ class Controls:
 
     self.update_events(CS)
     cloudlog.timestamp("Events updated")
-
-    # PFEIFER - EMT
-    emt.update()
 
     if not self.CP.passive and self.initialized:
       # Update control state
