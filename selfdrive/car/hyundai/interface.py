@@ -104,7 +104,7 @@ class CarInterface(CarInterfaceBase):
     ret.pcmCruise = not ret.openpilotLongitudinalControl
 
     ret.stoppingControl = True
-    ret.startingState = False
+    ret.startingState = True
     ret.stoppingDecelRate = 0.3
     ret.steerActuatorDelay = 0.2
     ret.steerLimitTimer = 2.0
@@ -112,8 +112,8 @@ class CarInterface(CarInterfaceBase):
     ret.vEgoStarting = 0.1
     ret.vEgoStopping = 0.3
     ret.startAccel = 1.0
-    #ret.longitudinalActuatorDelayLowerBound = 0.5
-    #ret.longitudinalActuatorDelayUpperBound = 0.5
+    ret.longitudinalActuatorDelayLowerBound = 0.25
+    ret.longitudinalActuatorDelayUpperBound = 0.25
     ret.radarTimeStep = 0.02  # 50hz
 
     # *** feature detection ***
