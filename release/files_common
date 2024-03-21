@@ -564,6 +564,3 @@ tinygrad_repo/tinygrad/runtime/ops_disk.py
 tinygrad_repo/tinygrad/runtime/ops_gpu.py
 tinygrad_repo/tinygrad/shape/*
 tinygrad_repo/tinygrad/*.py
-
-selfdrive/controls/experimental_mode_toggle.py
-selfdrive/controls/vtsc.py
