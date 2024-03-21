@@ -227,7 +227,6 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"AutoLaneChangeEnabled", PERSISTENT}, //boxkon
     {"ShowTurnSignal", PERSISTENT}, //boxkon
 
-    {"SmoothBraking", PERSISTENT}, // frog
     {"TurnVisionControl", PERSISTENT}, //PFEIFER - VTSC
 };
 
