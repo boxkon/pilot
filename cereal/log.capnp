@@ -1062,8 +1062,6 @@ struct LongitudinalPlan @0xe00b5b3eba12876c {
 
   solverExecutionTime @35 :Float32;
 
-  leadRelDist @37 :Float32;
-
   enum LongitudinalPlanSource {
     cruise @0;
     lead0 @1;
