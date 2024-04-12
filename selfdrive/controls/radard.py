@@ -269,7 +269,6 @@ class RadarD:
         if self.radar_state.leadOne.radar:
           if len(self.tracks) == 1 and leads_v3[1].prob > .5:
             self.radar_state.leadTwo = get_RadarState_from_vision(leads_v3[1], self.v_ego, model_v_ego)
-            self.radar_state.leadTwo.dRel -= 0.5
         else:
           self.radar_state.leadOne.dRel -= 0.5
 
