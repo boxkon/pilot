@@ -329,7 +329,9 @@ void MapWindow::initializeGL() {
   m_map->setPitch(MIN_PITCH);
   // m_map->setStyleUrl("mapbox://styles/commaai/clkqztk0f00ou01qyhsa5bzpj");
   // m_map->setStyleUrl("mapbox://styles/neokii/clln2h0yb000201qxe4s7bom9"); // neokii - style
-  m_map->setStyleUrl("mapbox://styles/mapbox/satellite-streets-v12"); // opkr satellite- style
+  // m_map->setStyleUrl("mapbox://styles/mapbox/satellite-streets-v12"); // opkr satellite- style
+  // m_map->setStyleUrl("mapbox://styles/mapbox/satellite-v9");  // Mapbox Satellite
+  m_map->setStyleUrl("mapbox://styles/mapbox/satellite-streets-v11"); // Mapbox Satellite Streets
 
   QObject::connect(m_map.data(), &QMapLibre::Map::mapChanged, [=](QMapLibre::Map::MapChange change) {
     // set global animation duration to 0 ms so visibility changes are instant
