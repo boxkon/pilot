@@ -171,7 +171,8 @@ class CarInterface(CarInterfaceBase):
         ret.exFlags |= HyundaiExFlags.TPMS.value
       if 1348 in fingerprint[0]:
         ret.exFlags |= HyundaiExFlags.NAVI.value
-      ret.hasHda = 1157 in fingerprint[0] and candidate in CAN_GEARS['has_hda']
+      if 1157 in fingerprint[0] and candidate in CAN_GEARS['has_hda']:
+        ret.exFlags |= HyundaiExFlags.HDA.value
 
       if not ret.openpilotLongitudinalControl:
         ret.radarUnavailable = ret.sccBus == -1
