@@ -6,11 +6,11 @@
 #include <cmath>
 
 #include "common/swaglog.h"
-#include "selfdrive/ui/qt/onroad/buttons.h"
 #include "selfdrive/ui/qt/util.h"
 
 // Window that shows camera view and variety of info drawn on top
-AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget* parent) : last_update_params(0), fps_filter(UI_FREQ, 3, 1. / UI_FREQ), CameraWidget("camerad", type, true, parent) {
+AnnotatedCameraWidget::AnnotatedCameraWidget(VisionStreamType type, QWidget *parent)
+    : last_update_params(0), fps_filter(UI_FREQ, 3, 1. / UI_FREQ), CameraWidget("camerad", type, true, parent) {
   pm = std::make_unique<PubMaster, const std::initializer_list<const char *>>({"uiDebug"});
 
   main_layout = new QVBoxLayout(this);
@@ -94,6 +94,8 @@ void AnnotatedCameraWidget::updateState(const UIState &s) {
     map_settings_btn->setVisible(!hideBottomIcons);
     main_layout->setAlignment(map_settings_btn, (rightHandDM ? Qt::AlignLeft : Qt::AlignRight) | Qt::AlignBottom);
   }
+
+  update();
 }
 
 void AnnotatedCameraWidget::updateFrameMat() {
@@ -214,7 +216,6 @@ void AnnotatedCameraWidget::paintEvent(QPaintEvent *event) {
   UIState *s = uiState();
   SubMaster &sm = *(s->sm);
   const double start_draw_t = millis_since_boot();
-  const cereal::ModelDataV2::Reader &model = sm["modelV2"].getModelV2();
 
   QPainter p(this);
 
