@@ -122,7 +122,7 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     cruiseOn @123;
     cruiseOff @124;
 
-    laneChangeBlockedroadEdge @124;
+    laneChangeBlockedroadEdge @125;
 
     radarCanErrorDEPRECATED @15;
     communityFeatureDisallowedDEPRECATED @62;
