@@ -84,7 +84,7 @@ class LongitudinalPlanner:
     v_cruise = v_cruise_kph * CV.KPH_TO_MS
 
     # neokii
-    vCluRatio = sm['carState'].vCluRatio
+    vCluRatio = sm['carState'].exState.vCluRatio
     if vCluRatio > 0.5:
       v_cruise *= vCluRatio
       v_cruise = int(v_cruise * CV.MS_TO_KPH + 0.25) * CV.KPH_TO_MS

@@ -35,7 +35,8 @@ CPU usage budget
 MAX_TOTAL_CPU = 250.  # total for all 8 cores
 PROCS = {
   # Baseline CPU usage by process
-  "selfdrive.controls.controlsd": 46.0,
+  "selfdrive.controls.controlsd": 32.0,
+  "selfdrive.car.card": 22.0,
   "./loggerd": 14.0,
   "./encoderd": 17.0,
   "./camerad": 14.5,
@@ -124,7 +125,7 @@ class TestOnroad:
     # start manager and run openpilot for a minute
     proc = None
     try:
-      manager_path = os.path.join(BASEDIR, "selfdrive/manager/manager.py")
+      manager_path = os.path.join(BASEDIR, "system/manager/manager.py")
       proc = subprocess.Popen(["python", manager_path])
 
       sm = messaging.SubMaster(['carState'])

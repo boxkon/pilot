@@ -118,7 +118,7 @@ class CarInterface(CarInterfaceBase):
     ret.steerActuatorDelay = 0.2
     ret.steerLimitTimer = 2.0
 
-    ret.vEgoStarting = 0.1
+    ret.vEgoStarting = 0.2
     ret.vEgoStopping = 0.3
     ret.startAccel = 1.0
     ret.longitudinalActuatorDelayLowerBound = 0.5
