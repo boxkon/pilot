@@ -116,7 +116,7 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     paramsdTemporaryError @50;
     paramsdPermanentError @119;
     actuatorsApiUnavailable @120;
-    
+
     slowingDownSpeed @121;
     slowingDownSpeedSound @122;
     cruiseOn @123;
@@ -742,6 +742,7 @@ struct CarParams {
   directAccelControlDEPRECATED @30 :Bool;
   maxSteeringAngleDegDEPRECATED @54 :Float32;
   longitudinalActuatorDelayLowerBoundDEPRECATEDDEPRECATED @61 :Float32;
+
 
   sccBus @74: Int8;
   exFlags @75 :UInt32;

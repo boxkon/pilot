@@ -77,7 +77,8 @@ class LongControl:
       a_target_now = interp(t_since_plan, CONTROL_N_T_IDX, long_plan.accels)
 
       v_target = interp(self.CP.longitudinalActuatorDelay + t_since_plan, CONTROL_N_T_IDX, speeds)
-      a_target = (2 * (v_target - v_target_now) / self.CP.longitudinalActuatorDelay - a_target_now) * ntune_scc_get('longLeadSensitivity') * (0.8 if is_blend else 1.0)
+      a_target = 2 * (v_target - v_target_now) / self.CP.longitudinalActuatorDelay - a_target_now
+      a_target *= ntune_scc_get('longLeadSensitivity') * (0.8 if is_blend else 1.0)
 
       v_target_1sec = interp(self.CP.longitudinalActuatorDelay + t_since_plan + 1.0, CONTROL_N_T_IDX, speeds)
     else:

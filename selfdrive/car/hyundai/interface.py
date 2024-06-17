@@ -125,7 +125,7 @@ class CarInterface(CarInterfaceBase):
     ret.vEgoStopping = 0.3
     ret.startAccel = 1.0
     ret.longitudinalActuatorDelay = 0.5
-    ret.radarTimeStep = 0.02  # 50hz
+    ret.radarTimeStep = 0.02
 
     # *** feature detection ***
     if candidate in CANFD_CAR:
