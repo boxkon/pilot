@@ -638,6 +638,10 @@ location set</source>
         <translation>업데이트를 다운로드할 수 없습니다 %1</translation>
     </message>
     <message>
+        <source>Invalid date and time settings, system won&apos;t start. Connect to internet to set time.</source>
+        <translation>날짜 및 시간 설정이 잘못되었습니다. 시스템이 시작되지 않습니다. 시간을 설정하려면 인터넷에 연결하세요.</translation>
+    </message>
+    <message>
         <source>Taking camera snapshots. System won&apos;t start until finished.</source>
         <translation>카메라 스냅샷을 촬영 중입니다. 완료될 때까지 시스템이 시작되지 않습니다.</translation>
     </message>
@@ -1200,7 +1204,7 @@ This may take up to a minute.</source>
     </message>
     <message>
         <source>never</source>
-        <translation>업데이트 안함</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1423,28 +1427,32 @@ This may take up to a minute.</source>
         <translation>E2E 롱컨트롤</translation>
     </message>
     <message>
+        <source>Navigate on openpilot</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>When navigation has a destination, openpilot will input the map information into the model. This provides useful context for the model and allows openpilot to keep left or right appropriately at forks/exits. Lane change behavior is unchanged and still activated by the driver. This is an alpha quality feature; mistakes should be expected, particularly around exits and forks. These mistakes can include unintended laneline crossings, late exit taking, driving towards dividing barriers in the gore areas, etc.</source>
+        <translation>목적지를 설정하면, openpilot은 모델에 지도 정보를 입력해 적절한 주행을 합니다. 이는 openpilot이 분기점이나 출구에서 적절하게 좌우를 유지하도록 합니다. 차선 변경은 하지 않고 여전히 운전자에 의해 활성화됩니다. 이 기능은 알파 품질이며, 특히 출구와 분기점 주변에서 실수를 할 수도 있습니다. 이러한 실수에는 의도하지 않은 차선 변경, 출구를 늦게 나가기, 분리 장벽 방향으로 운전하기 등이 포함될 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner. When a navigation destination is set and the driving model is using it as input, the driving path on the map will turn green.</source>
+        <translation>주행 시각화는 저속에서 도로를 향한 광각 카메라로 전환되어 일부 회전 구간을 더 잘 보여줍니다. 실험 모드 로고도 오른쪽 상단에 표시됩니다. 내비게이션 목적지를 설정하고 운전 모델이 이를 입력으로 사용하면 지도의 주행 경로가 녹색으로 바뀝니다.</translation>
+    </message>
+    <message>
+        <source>Experimental mode is currently unavailable on this car since the car&apos;s stock ACC is used for longitudinal control.</source>
+        <translation>현재 차량의 순정 ACC가 사용되기 때문에 실험 모드를 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>openpilot longitudinal control may come in a future update.</source>
+        <translation>openpilot 롱컨트롤은 향후 업데이트로 제공될 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>An alpha version of openpilot longitudinal control can be tested, along with Experimental mode, on non-release branches.</source>
+        <translation>openpilot의 롱컨트롤 알파 버전은 비공개 브랜치에서 실험 모드와 함께 테스트할 수 있습니다.</translation>
+    </message>
+    <message>
         <source>Enable the openpilot longitudinal control (alpha) toggle to allow Experimental mode.</source>
-        <translation>실험 모드를 사용하려면 openpilot E2E 가감속 제어 (알파) 토글을 활성화하세요.</translation>
-    </message>
-    <message>
-        <source>End-to-End Longitudinal Control</source>
-        <translation>E2E 가감속 제어</translation>
-    </message>
-    <message>
-        <source>Standard is recommended. In aggressive mode, openpilot will follow lead cars closer and be more aggressive with the gas and brake. In relaxed mode openpilot will stay further away from lead cars. On supported cars, you can cycle through these personalities with your steering wheel distance button.</source>
-        <translation>표준 모드를 권장합니다. 공격적 모드의 openpilot은 선두 차량을 더 가까이 따라가고 가감속제어를 사용하여 더욱 공격적으로 움직입니다. 편안한 모드의 openpilot은 선두 차량으로부터 더 멀리 떨어져 있습니다. 지원되는 차량에서는 스티어링 휠 거리 버튼을 사용하여 이러한 특성을 순환할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>The driving visualization will transition to the road-facing wide-angle camera at low speeds to better show some turns. The Experimental mode logo will also be shown in the top right corner. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Always-On Driver Monitoring</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable driver monitoring even when openpilot is not engaged.</source>
-        <translation type="unfinished"></translation>
+        <translation>실험 모드를 허용하려면 openpilot 롱컨트롤(알파)을 활성화하세요.</translation>
     </message>
 </context>
 <context>
