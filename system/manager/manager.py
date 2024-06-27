@@ -41,6 +41,11 @@ def manager_init() -> None:
     ("OpenpilotEnabledToggle", "1"),
     ("LongitudinalPersonality", str(log.LongitudinalPersonality.standard)),
 
+    ("IsMetric", "1"),
+    ("UseExternalNaviRoutes", "1"),
+    ("DriverCameraOnReverse", "1"),
+    ("SyncSetSpeedWhileGas", "1"),
+
     # Community
     ("LaneChangeEnabled", "0"), #boxkon
     ("AutoLaneChangeEnabled", "0"), #boxkon
