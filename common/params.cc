@@ -220,7 +220,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"UseExternalNaviRoutes", PERSISTENT},
     {"DriverCameraOnReverse", PERSISTENT},
     {"CanFdHda2", PERSISTENT},
-    {"SyncSetSpeedWhileGas", PERSISTENT}
+    {"SyncSetSpeedWhileGas", PERSISTENT},
 
     {"LaneChangeEnabled", PERSISTENT}, //boxkon
     {"AutoLaneChangeEnabled", PERSISTENT}, //boxkon
