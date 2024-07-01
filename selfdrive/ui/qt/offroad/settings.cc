@@ -631,13 +631,13 @@ CommunityPanel::CommunityPanel(SettingsWindow *parent) : ListWidget(parent) {
       "LaneChangeEnabled",
       tr("Enable Lane Change Assist"),
       tr("Perform assisted lane changes with openpilot by checking your surroundings for safety, activating the turn signal and gently nudging the steering wheel towards your desired lane. openpilot is not capable of checking if a lane change is safe. You must continuously observe your surroundings to use this feature."),
-      "../assets/offroad/icon_lane.png",
+      "../assets/offroad/icon_lca.png",
     },
     {
       "AutoLaneChangeEnabled",
       tr("Enable Auto Lane Change(Nudgeless)"),
       tr("Automatically changes lanes at turn signal."),
-      "../assets/offroad/icon_lane.png",
+      "../assets/offroad/icon_lca.png",
     },
     {
       "ShowTurnSignal",
