@@ -180,7 +180,7 @@ class CruiseStateManager:
           v_cruise_kph = clip(v_cruise_kph, round(CS.vEgoCluster * CV.MS_TO_KPH, 1), V_CRUISE_MAX)
           road_limit_speed = SpeedLimiter.instance().get_road_limit_speed()
           if V_CRUISE_ENABLE_MIN < road_limit_speed < V_CRUISE_MAX:
-            v_cruise_kph = max(v_cruise_kph, road_limit_speed)
+            v_cruise_kph = max(v_cruise_kph, road_limit_speed + 10.)
 
     if btn == ButtonType.gapAdjustCruise:
       if not self.btn_long_pressed:
