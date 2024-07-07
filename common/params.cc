@@ -214,6 +214,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"DriverCameraOnReverse", PERSISTENT},
     {"CanFdHda2", PERSISTENT},
     {"SyncSetSpeedWhileGas", PERSISTENT},
+    {"CarFingerprints", PERSISTENT},
 
     {"LaneChangeEnabled", PERSISTENT}, //boxkon
     {"AutoLaneChangeEnabled", PERSISTENT}, //boxkon
