@@ -32,7 +32,7 @@ class CarInterface(CarInterfaceBase):
   def get_pid_accel_limits(CP, current_speed, cruise_speed):
     v_current_kph = current_speed * CV.MS_TO_KPH
     gas_max_bp = [0., 10., 30., 60., 90., 120., 150.]
-    gas_max_v = [1.2, 1.0, 0.8, 0.35, 0.2, 0.15, 0.1]
+    gas_max_v = [1.35, 1.15, 0.85, 0.35, 0.2, 0.15, 0.1]
     return ACCEL_MIN, interp(v_current_kph, gas_max_bp, gas_max_v)
 
   @staticmethod
@@ -119,8 +119,8 @@ class CarInterface(CarInterfaceBase):
     ret.steerActuatorDelay = 0.2
     ret.steerLimitTimer = 2.0
 
-    ret.vEgoStarting = 0.2
-    ret.vEgoStopping = 0.3
+    ret.vEgoStarting = 0.1
+    ret.vEgoStopping = 0.2
     ret.startAccel = 1.0
     ret.longitudinalActuatorDelay = 0.5
     ret.radarTimeStep = 0.02
