@@ -37,7 +37,7 @@ def long_control_state_trans(CP, active, long_control_state, v_ego,
           long_control_state = LongCtrlState.pid
 
     elif long_control_state == LongCtrlState.stopping:
-      if starting_condition and CP.startingState and v_ego < 0.01:
+      if starting_condition and CP.startingState:
         long_control_state = LongCtrlState.starting
       elif starting_condition:
         long_control_state = LongCtrlState.pid
