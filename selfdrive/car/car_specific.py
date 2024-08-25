@@ -177,15 +177,15 @@ class CarSpecificEvents:
                            allow_enable=True, enable_buttons=(ButtonType.accelCruise, ButtonType.decelCruise)):
     events = Events()
 
-    if CS.doorOpen:
-      events.add(EventName.doorOpen)
-    if CS.seatbeltUnlatched:
-      events.add(EventName.seatbeltNotLatched)
-    if CS.gearShifter != GearShifter.drive and (extra_gears is None or
-       CS.gearShifter not in extra_gears):
-      events.add(EventName.wrongGear)
-    if CS.gearShifter == GearShifter.reverse:
-      events.add(EventName.reverseGear)
+    # if CS.doorOpen:
+    #   events.add(EventName.doorOpen)
+    # if CS.seatbeltUnlatched:
+    #   events.add(EventName.seatbeltNotLatched)
+    # if CS.gearShifter != GearShifter.drive and (extra_gears is None or
+    #    CS.gearShifter not in extra_gears):
+    #   events.add(EventName.wrongGear)
+    # if CS.gearShifter == GearShifter.reverse:
+    #   events.add(EventName.reverseGear)
     if not CS.cruiseState.available:
       events.add(EventName.wrongCarMode)
     if CS.espDisabled:
@@ -202,8 +202,8 @@ class CarSpecificEvents:
       events.add(EventName.wrongCruiseMode)
     #if CS.brakeHoldActive and self.CP.openpilotLongitudinalControl:
     #  events.add(EventName.brakeHold)
-    if CS.parkingBrake:
-      events.add(EventName.parkBrake)
+    # if CS.parkingBrake:
+    #   events.add(EventName.parkBrake)
     if CS.accFaulted:
       events.add(EventName.accFaulted)
     if CS.steeringPressed:
