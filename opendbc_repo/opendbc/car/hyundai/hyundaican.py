@@ -138,6 +138,7 @@ def create_acc_commands(packer, enabled, accel, upper_jerk, idx, hud_control, se
     "ACC_ObjLatPos": 0,
     "ACC_ObjRelSpd": 0,
     "ACC_ObjDist": 1, # close lead makes controls tighter
+    "SCCInfoDisplay": 4 if stopping else 0,
     }
 
   if not stock_cam:
